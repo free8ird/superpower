@@ -107,3 +107,7 @@ alias gwip 'git add -A && git commit -m "WIP"'
 alias gunwip 'git log -n 1 | grep -q -c "WIP" && git reset HEAD~1'
 alias gfix 'git commit --fixup'
 alias gsquash 'git commit --squash'
+
+# Save work, pull, and rebase workflow
+alias gspr 'git stash && git pull --rebase && git stash pop'
+alias gspro 'git stash && git pull --rebase origin (git branch --show-current) && git stash pop'
