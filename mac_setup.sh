@@ -74,7 +74,7 @@ main() {
     mkdir -p modules
     
     # Available modules
-    local modules=("homebrew" "xcode" "sublime" "fish" "fish-config" "iterm2" "pyenv" "jenv")
+    local modules=("homebrew" "xcode" "sublime" "fish" "fish-config" "iterm2" "pyenv" "jenv" "ssh-github")
     
     # If no arguments provided, install all modules
     if [[ $# -eq 0 ]]; then
@@ -111,12 +111,14 @@ usage() {
     echo "  iterm2      - Install iTerm2"
     echo "  pyenv       - Install pyenv (Python version manager)"
     echo "  jenv        - Install jenv (Java version manager)"
+    echo "  ssh-github  - Setup SSH keys for GitHub access"
     echo ""
     echo "Examples:"
     echo "  $0                       # Install all modules"
     echo "  $0 homebrew xcode        # Install only Homebrew and Xcode"
     echo "  $0 fish fish-config      # Install Fish shell with plugins"
     echo "  $0 pyenv jenv            # Install only Python and Java version managers"
+    echo "  $0 ssh-github            # Setup SSH keys for GitHub"
 }
 
 # Handle command line arguments

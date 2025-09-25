@@ -19,6 +19,7 @@ A modular script to automatically install essential development tools and applic
 - **iTerm2**: Terminal emulator for macOS
 - **pyenv**: Python version management made simple
 - **jenv**: Java version management for multiple Java versions
+- **SSH GitHub**: Automated SSH key generation and GitHub setup
 
 ## Quick Start
 
@@ -101,24 +102,22 @@ The script is designed to handle dependencies automatically:
 - Each file contains both aliases and abbreviations for its domain
 - Copies custom functions to Fish functions directory
 - Configures Fish with useful settings and colors
-- Provides helpful usage examples and shortcuts
-
 ### iTerm2 Module
 - Installs iTerm2 via Homebrew Cask
 - Provides setup guidance for customization
 
-### pyenv Module
-- Installs pyenv and pyenv-virtualenv via Homebrew
+### jenv Module
+- Installs jenv and jenv-export via Homebrew
 - Configures shell integration for bash, zsh, and fish
 - Automatically sets up PATH and initialization
-- Provides usage examples and common commands
+- Provides guidance for Java version management
 
-### jenv Module
-- Installs jenv via Homebrew
-- Configures shell integration for bash, zsh, and fish
-- Enables useful plugins (export, maven, gradle)
-- Automatically detects and adds existing Java installations
-- Provides guidance for installing Java via Homebrew
+### SSH GitHub Module
+- Generates ED25519 SSH keys for secure GitHub access
+- Configures SSH client settings automatically
+- Sets up SSH agent with keychain integration
+- Tests GitHub connection and provides setup guidance
+- Handles existing keys safely with backup options
 
 ## Requirements
 
@@ -178,7 +177,8 @@ The custom.fish file is perfect for:
 │   ├── fish-config.sh   # Fish plugins and configuration
 │   ├── iterm2.sh        # iTerm2 installation
 │   ├── pyenv.sh         # Python version manager
-│   └── jenv.sh          # Java version manager
+│   ├── jenv.sh          # Java version manager
+│   └── ssh-github.sh    # SSH GitHub setup
 └── README.md            # This file
 ```
 
