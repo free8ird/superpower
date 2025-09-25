@@ -17,7 +17,8 @@
 # Example:
 # abbr -a myalias some long command here
 # abbr -a deploy git push origin main
-
+abbr -a test echo "test"
+abbr -a hello echo "Hello from custom config!"
 # =============================================================================
 # PERSONAL FUNCTIONS
 # =============================================================================

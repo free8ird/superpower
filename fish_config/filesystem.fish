@@ -82,7 +82,12 @@ alias untargz 'tar -xzf'
 
 # File editing shortcuts
 alias edit 'code ~/.config/fish/custom.fish'  # Edit custom Fish config
-alias reload 'source ~/.config/fish/config.fish'  # Reload Fish config
+
+# Reload Fish configuration
+function reload --description 'Reload Fish configuration'
+    source ~/.config/fish/config.fish
+    echo "✅ Fish configuration reloaded!"
+end
 
 # System information
 alias sysinfo 'system_profiler SPSoftwareDataType SPHardwareDataType'
