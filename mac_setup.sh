@@ -45,7 +45,8 @@ command_exists() {
 # Function to run a module
 run_module() {
     local module_name="$1"
-    local module_path="./modules/${module_name}.sh"
+    local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    local module_path="$script_dir/modules/${module_name}.sh"
     
     if [[ -f "$module_path" ]]; then
         log_info "Running module: $module_name"

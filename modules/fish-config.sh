@@ -142,14 +142,18 @@ install_fish-config() {
     # Create a simple config.fish that sources from the project directory
     log_info "Setting up Fish configuration to source from project directory..."
     
+    # Get the absolute path of the dotfiles project directory
+    local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    local dotfiles_path="$(dirname "$script_dir")"
+    
     local simple_config="# Fish configuration - sources from dotfiles project
 # This file is managed by the dotfiles project setup
 
 # Source the main configuration from the dotfiles project
-if test -f ~/apps/dotfiles/fish_config/config.fish
-    source ~/apps/dotfiles/fish_config/config.fish
+if test -f $dotfiles_path/fish_config/config.fish
+    source $dotfiles_path/fish_config/config.fish
 else
-    echo 'Warning: Dotfiles project configuration not found at ~/apps/dotfiles/fish_config/config.fish'
+    echo 'Warning: Dotfiles project configuration not found at $dotfiles_path/fish_config/config.fish'
 end
 "
     

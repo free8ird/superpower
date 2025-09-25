@@ -24,42 +24,24 @@ if command -v direnv >/dev/null
 end
 
 # Source configuration files directly from project directory
-if test -d ~/apps/dotfiles/fish_config
-    set -l dotfiles_config ~/apps/dotfiles/fish_config
-    
-    # Source all config files from project
-    if test -f $dotfiles_config/filesystem.fish
-        source $dotfiles_config/filesystem.fish
-    end
-    
-    if test -f $dotfiles_config/git.fish
-        source $dotfiles_config/git.fish
-    end
-    
-    if test -f $dotfiles_config/docker.fish
-        source $dotfiles_config/docker.fish
-    end
-    
-    if test -f $dotfiles_config/custom.fish
-        source $dotfiles_config/custom.fish
-    end
-else
-    # Fallback to installed files if project directory not available
-    if test -f ~/.config/fish/filesystem.fish
-        source ~/.config/fish/filesystem.fish
-    end
-    
-    if test -f ~/.config/fish/git.fish
-        source ~/.config/fish/git.fish
-    end
-    
-    if test -f ~/.config/fish/docker.fish
-        source ~/.config/fish/docker.fish
-    end
-    
-    if test -f ~/.config/fish/custom.fish
-        source ~/.config/fish/custom.fish
-    end
+# Get the directory where this config.fish file is located
+set -l config_dir (dirname (status --current-filename))
+
+# Source all config files from the same directory
+if test -f $config_dir/filesystem.fish
+    source $config_dir/filesystem.fish
+end
+
+if test -f $config_dir/git.fish
+    source $config_dir/git.fish
+end
+
+if test -f $config_dir/docker.fish
+    source $config_dir/docker.fish
+end
+
+if test -f $config_dir/custom.fish
+    source $config_dir/custom.fish
 end
 
 # Enable vi key bindings (optional - comment out if you prefer default)
