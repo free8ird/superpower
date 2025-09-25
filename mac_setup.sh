@@ -119,6 +119,8 @@ usage() {
     echo "  $0 fish fish-config      # Install Fish shell with plugins"
     echo "  $0 pyenv jenv            # Install only Python and Java version managers"
     echo "  $0 ssh-github            # Setup SSH keys for GitHub"
+    echo ""
+    echo "For OpenJDK installation, use: ./helpers/openjdk.sh"
 }
 
 # Handle command line arguments

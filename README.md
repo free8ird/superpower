@@ -19,6 +19,7 @@ A modular script to automatically install essential development tools and applic
 - **iTerm2**: Terminal emulator for macOS
 - **pyenv**: Python version management made simple
 - **jenv**: Java version management for multiple Java versions
+- **Helper Scripts**: Standalone utilities for specific tasks (OpenJDK installation)
 - **SSH GitHub**: Automated SSH key generation and GitHub setup
 
 ## Quick Start
@@ -57,11 +58,33 @@ A modular script to automatically install essential development tools and applic
 - `iterm2` - Install iTerm2
 - `pyenv` - Install pyenv (Python version manager)
 - `jenv` - Install jenv (Java version manager)
-
 ### Help
 ```bash
 ./mac_setup.sh --help
 ```
+
+## Helper Scripts
+
+For specialized tasks, use the standalone helper scripts:
+
+### OpenJDK Installation
+```bash
+# Install specific JDK versions
+./helpers/openjdk.sh install 17    # Install OpenJDK 17 (LTS)
+./helpers/openjdk.sh install 8     # Install OpenJDK 8 (LTS)
+./helpers/openjdk.sh install 21    # Install OpenJDK 21 (LTS)
+
+# Manage versions
+./helpers/openjdk.sh list          # List installed versions
+./helpers/openjdk.sh available     # Show available versions
+./helpers/openjdk.sh current       # Show current Java version
+./helpers/openjdk.sh set-default 17 # Set Java 17 as default
+
+# Uninstall if needed
+./helpers/openjdk.sh uninstall 11  # Remove OpenJDK 11
+```
+
+**Supported versions**: 8, 11, 17, 21, 24 (LTS versions recommended for production)
 
 ## Installation Order
 
@@ -111,6 +134,16 @@ The script is designed to handle dependencies automatically:
 - Configures shell integration for bash, zsh, and fish
 - Automatically sets up PATH and initialization
 - Provides guidance for Java version management
+
+### Helper Scripts
+
+#### OpenJDK Utility (`./helpers/openjdk.sh`)
+- **Standalone script** for on-demand JDK installation
+- Supports OpenJDK versions: **8, 11, 17, 21, 24**
+- Automatically installs and configures jenv integration
+- **Commands**: install, uninstall, list, available, set-default, current
+- **Smart version management** with LTS recommendations
+- **Usage**: `./helpers/openjdk.sh install 17`
 
 ### SSH GitHub Module
 - Generates ED25519 SSH keys for secure GitHub access
@@ -169,6 +202,8 @@ The custom.fish file is perfect for:
 │       ├── weather.fish  # Weather information function
 │       ├── mkcd.fish     # Create and cd into directory
 │       └── backup.fish   # Create backup copies
+├── helpers/              # Standalone utility scripts
+│   └── openjdk.sh        # OpenJDK installation utility
 ├── modules/              # Individual installation modules
 │   ├── homebrew.sh      # Homebrew installation
 │   ├── xcode.sh         # Xcode Command Line Tools
@@ -184,11 +219,21 @@ The custom.fish file is perfect for:
 
 ## Contributing
 
-Feel free to add more modules or improve existing ones. Each module should:
+Feel free to add more modules or improve existing ones:
+
+### Modules (`modules/` directory)
+Each module should:
 1. Be self-contained in the `modules/` directory
 2. Implement an `install_<module_name>()` function
 3. Use the logging functions for consistent output
 4. Handle existing installations gracefully
+
+### Helper Scripts (`helpers/` directory)
+Standalone utilities should:
+1. Be self-contained scripts for specific tasks
+2. Include their own logging and error handling
+3. Provide comprehensive usage instructions
+4. Support command-line arguments for different operations
 5. Return 0 on success, 1 on failure
 
 ## License
