@@ -50,7 +50,6 @@ alias lsize 'ls -lhS'  # Sort by size
 alias ltree 'tree -C'  # Colorized tree
 
 # Directory navigation shortcuts
-alias -- - 'cd -'  # Go to previous directory
 alias home 'cd ~'
 alias root 'cd /'
 

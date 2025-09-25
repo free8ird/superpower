@@ -30,7 +30,7 @@ abbr -a gl git log --oneline
 abbr -a gd git diff
 abbr -a gdc git diff --cached
 abbr -a gds git diff --staged
-abbr -a glog git log --graph --pretty=format:\'%Cred%h%Creset -%C\(yellow\)%d%Creset %s %Cgreen\(%cr\) %C\(bold blue\)<%an>%Creset\' --abbrev-commit
+abbr -a glog git log --graph --pretty=format:\"%Cred%h%Creset -%C\(yellow\)%d%Creset %s %Cgreen\(%cr\) %C\(bold blue\)\<%an\>%Creset\" --abbrev-commit
 
 # Git stash operations
 abbr -a gst git stash
