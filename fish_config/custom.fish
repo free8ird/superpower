@@ -47,3 +47,13 @@ abbr -a hello echo "Hello from custom config!"
 # function project
 #     cd ~/Projects/$argv[1]
 # end
+
+# Fix: Remove standard nvm paths (use nvm.fish instead)
+# This ensures nvm.fish versions take precedence
+for path_entry in $PATH
+    if string match -q "*/.nvm/versions/node/*" $path_entry
+        if set -l index (contains --index -- $path_entry $PATH)
+            set --erase PATH[$index]
+        end
+    end
+end
